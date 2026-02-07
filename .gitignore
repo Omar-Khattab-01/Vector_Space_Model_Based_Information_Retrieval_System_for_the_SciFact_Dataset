@@ -4,3 +4,5 @@ IR_Files/__pycache__/
 IR_Files/preprocessed_documents.json
 IR_Files/preprocessed_queries.json
 IR_Files/inverted_index.json
+IR_Files/Results
+IR_Files/test.qrels
