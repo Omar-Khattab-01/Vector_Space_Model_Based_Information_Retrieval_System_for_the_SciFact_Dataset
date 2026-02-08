@@ -67,4 +67,10 @@ def save_results(results, output_file):
         json.dump(beir_results, file, indent=4)
 
 
-#convert_tsv_to_qrels(dataset + '/qrels/test.tsv', dataset + '/qrels/test.qrels')
+if __name__ == "__main__":
+    import os
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    tsv_path = os.path.join(BASE_DIR, '..', 'scifact', 'qrels', 'test.tsv')
+    qrels_path = os.path.join(BASE_DIR, 'test.qrels')
+    convert_tsv_to_qrels(tsv_path, qrels_path)
+    print(f"Converted {tsv_path} -> {qrels_path}")
