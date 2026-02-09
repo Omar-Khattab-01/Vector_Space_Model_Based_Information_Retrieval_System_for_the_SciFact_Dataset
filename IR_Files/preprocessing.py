@@ -121,7 +121,8 @@ def preprocess_documents(
 def preprocess_queries(
     queries: List[Dict[str, Any]],
     stopwords: Set[str],
-    stem: bool = False
+    stem: bool = False,
+    query_field: str = "title",
 ) -> List[Dict[str, Any]]:
     """
     Preprocess all queries.
@@ -133,13 +134,13 @@ def preprocess_queries(
         queries: List of query dictionaries from parser.
         stopwords: Set of stopwords to remove.
         stem: If True, apply Porter stemming.
+        query_field: Field containing query text ("title" or "full_text").
 
     Returns:
         List of queries with 'tokens' field added.
     """
     for query in queries:
-        # Query text is in 'title' field (from parser.py)
-        query_text = query.get('title', '') or ''
+        query_text = query.get(query_field, '') or ''
         query['tokens'] = preprocess_text(query_text, stopwords, stem)
 
     return queries

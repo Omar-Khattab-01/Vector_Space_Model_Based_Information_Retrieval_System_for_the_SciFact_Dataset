@@ -8,3 +8,7 @@ IR_Files/Results
 IR_Files/test.qrels
 Assignment 1.html
 Table of Contents.html
+IR_Files/.ipynb_checkpoints/
+IR_Files/pipeline.executed.ipynb
+IR_Files/.venv/
+.venv/

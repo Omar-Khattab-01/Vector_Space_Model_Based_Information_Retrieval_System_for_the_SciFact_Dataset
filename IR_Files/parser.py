@@ -27,12 +27,21 @@ def parse_query(query_line):
     Parse a single JSON line as a query
     """
     query = json.loads(query_line)
+    metadata = query.get('metadata', {}) or {}
+    query_text = query.get('text', '') or ''
+    metadata_query = metadata.get('query', '') or ''
+    metadata_narrative = metadata.get('narrative', '') or ''
+    full_text = " ".join(
+        part for part in [query_text, metadata_query, metadata_narrative] if part
+    )
+
     parsed_query = {
         'num': query['_id'],
-        'title': query.get('text', 'NO_TEXT'),
-        'query': query.get('metadata', {}).get('query', 'NO_QUERY'),
-        'narrative': query.get('metadata', {}).get('narrative', 'NO_NARRATIVE'),
-        'url': query.get('metadata', {}).get('url', 'NO_URL')
+        'title': query_text,
+        'query': metadata_query,
+        'narrative': metadata_narrative,
+        'full_text': full_text,
+        'url': metadata.get('url', '') or ''
     }
     return parsed_query
 
