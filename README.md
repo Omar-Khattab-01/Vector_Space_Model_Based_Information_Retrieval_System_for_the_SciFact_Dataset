@@ -7,10 +7,10 @@
 - Dongshi Li — 300294775
 
 Task split:
-- Omar: preprocessing pipeline and stopword/stemming setup.
-- Mustafa: indexing structures and TF–IDF cosine retrieval implementation.
-- Rhadesh: data preparation, caching, and path/config wiring.
-- Dongshi: evaluation (trec_eval), Results validation, and documentation.
+- Dongshi: preprocessing pipeline and stopword/stemming setup.
+- Rhadesh: indexing structures and TF–IDF cosine retrieval implementation.
+- Omar: data preparation, caching, and path/config wiring.
+- Mustafa: evaluation (trec_eval), Results validation, and documentation.
 
 ## What we built
 - Classic vector-space retriever with TF–IDF weighting and cosine similarity.
